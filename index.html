@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krazy Clock</title>
+    <style>
+        body
+        {
+            background-color: black;
+        }
+        .outer
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 410px;
+            height: 410px;
+            border: 1px solid cyan;
+            border-radius: 1000px;
+            box-shadow: 1px 1px 20px cyan;
+            background: linear-gradient(purple,red,yellow,purple,orangered);
+           animation: myanimation 1.5s linear infinite;
+        }
+        @keyframes myanimation
+        {
+            0%
+            {
+                filter: hue-rotate(0deg);
+            }
+            100%
+            {
+                filter: hue-rotate(360deg);
+            }
+        }
+        .clock-container
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 350px;
+            height: 350px;
+            background-color: rgb(6,51,51);
+            border: 16px solid black;
+            border-radius: 1000px;
+            color: white;
+            position: relative;
+        }
+        .clock-container::after
+        {
+            content: "";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: orangered;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 1000px;
+        }
+        .number
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            color: white;            
+        }
+        .number::after
+        {
+            content: "";
+            position: absolute;
+            height: 13px;
+            width: 3px;
+            background-color: black;
+        }
+        .number>div
+        {
+          padding: 12px;  
+        }
+        .num1
+        {
+            transform: rotate(30deg);
+        }
+        .num1>div{
+            transform: rotate(-30deg);
+        }
+        .num2
+        {
+            transform: rotate(60deg);
+        }
+        .num2>div{
+            transform: rotate(-60deg);
+        }
+        .num3
+        {
+            transform: rotate(90deg);
+        }
+        .num3>div{
+            transform: rotate(-90deg);
+        }
+        .num4
+        {
+            transform: rotate(120deg);
+        }
+        .num4>div{
+            transform: rotate(-120deg);
+        }
+        .num5
+        {
+            transform: rotate(150deg);
+        }
+        .num5>div{
+            transform: rotate(-150deg);
+        }
+        .num6
+        {
+            transform: rotate(180deg);
+        }
+        .num6>div{
+            transform: rotate(-180deg);
+        }
+        .num7
+        {
+            transform: rotate(210deg);
+        }
+        .num7>div{
+            transform: rotate(-210deg);
+        }
+        .num8
+        {
+            transform: rotate(240deg);
+        }
+        .num8>div{
+            transform: rotate(-240deg);
+        }
+        .num9
+        {
+            transform: rotate(270deg);
+        }
+        .num9>div{
+            transform: rotate(-270deg);
+        }
+        .num10
+        {
+            transform: rotate(300deg);
+        }
+        .num10>div{
+            transform: rotate(-300deg);
+        }
+        .num11
+        {
+            transform: rotate(330deg);
+        }
+        .num11>div{
+            transform: rotate(-330deg);
+        }
+        .num12
+        {
+            transform: rotate(360deg);
+        }
+        .num12>div{
+            transform: rotate(-360deg);
+        }
+        .clock-hand
+        {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .clock-hand>div{
+            left: 50%;
+            bottom: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+            border-radius: 12px;
+        }
+        .second-hand
+        {
+            height: 32%;
+            width: 2px;
+            background: orangered;
+        }
+        .minute-hand
+        {
+            height: 30%;
+            width: 4px;
+            background-color: yellow;
+        }
+        .hour-hand
+        {
+            height: 20%;
+            width: 8px;
+            background: white;
+        }
+        .second-hand::after
+        {
+            content: "";
+            border-style: solid;
+            border-width: 4px;
+            border-color: transparent transparent orangered transparent;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -6%;
+            position: absolute;
+        }
+        .current-day
+        {
+            position: absolute;
+            font-size: 12px;
+            font-weight: bold;
+            left: 50%;
+            color: yellow;
+            transform: translateX(-50%);
+            top: 30%;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+      <div class="clock-container">
+         <div class="current-day">
+
+         </div>
+         <div class="number num1">
+           <div>1</div>
+         </div>
+         <div class="number num2">
+            <div>2</div>
+          </div>
+          <div class="number num3">
+            <div>3</div>
+          </div>
+          <div class="number num4">
+            <div>4</div>
+          </div>
+          <div class="number num5">
+            <div>5</div>
+          </div>
+          <div class="number num6">
+            <div>6</div>
+          </div>
+          <div class="number num7">
+            <div>7</div>
+          </div>
+          <div class="number num8">
+            <div>8</div>
+          </div>
+          <div class="number num9">
+            <div>9</div>
+          </div>
+          <div class="number num10">
+            <div>10</div>
+          </div>
+          <div class="number num11">
+            <div>11</div>
+          </div>
+          <div class="number num12">
+            <div>12</div>
+          </div>
+          <div class="clock-hand" id="second">
+           <div class="second-hand"></div>
+          </div>
+          <div class="clock-hand" id="minute">
+            <div class="minute-hand"></div>
+           </div>
+           <div class="clock-hand" id="hour">
+            <div class="hour-hand"></div>
+           </div>
+      </div>
+    </div>
+    <script>
+        let seconds_Hand=document.querySelector("#second");
+        let minutes_Hand=document.querySelector("#minute");
+        let hours_Hand=document.querySelector("#hour");
+        setInterval(clockRotation,1000)
+        function clockRotation()
+        {
+         var date=new Date();
+         var getSeconds=date.getSeconds()/60;
+         var getMinutes=date.getMinutes()/60;
+         var getHours=date.getHours()/12;
+         seconds_Hand.style.transform="rotate("+getSeconds*360+"deg)"
+         minutes_Hand.style.transform="rotate("+getMinutes*360+"deg)"
+         hours_Hand.style.transform="rotate("+getHours*360+"deg)"
+         document.querySelector(".current-day").innerHTML=date.toDateString()
+        }
+    </script>
+</body>
+</html>
